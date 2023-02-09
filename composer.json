@@ -1,0 +1,29 @@
+{
+  "name": "kometsoft/laravel-auth",
+  "description": "Laravel authentication scaffoldings, with Tabler UI.",
+  "authors": [
+    {
+      "name": "aerrata",
+      "email": "0x0976@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Kometsoft\\Auth\\": "src/"
+    },
+    "classmap": [
+      "/"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kometsoft\\Auth\\AuthServiceProvider"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "laravel/ui": "^4.1"
+  }
+}
