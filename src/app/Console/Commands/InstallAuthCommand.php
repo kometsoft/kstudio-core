@@ -29,16 +29,22 @@ class InstallAuthCommand extends Command
      */
     public function handle()
     {
-        $this->runCommands(['php artisan ui bootstrap --auth']);
+        // $this->runCommands(['php artisan ui bootstrap --auth']);
 
-        $this->callSilent('vendor:publish', ['--tag' => 'laravel-auth-config', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'laravel-auth-assets', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'laravel-auth-stubs', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'form-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'calendar-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'column-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'generate-file-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'list-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'menu-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'migration-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'tab-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'table-field-controller', '--force' => true]);
 
-        $this->runCommands([
-            'npm install @tabler/core laravel-datatables-vite nouislider litepicker tom-select alpinejs autosize imask',
-            'npm run build',
-        ]);
+        // $this->runCommands([
+        //     'npm install @tabler/core laravel-datatables-vite nouislider litepicker tom-select alpinejs autosize imask',
+        //     'npm run build',
+        // ]);
         
         $this->line('');
         $this->components->info('Auth scaffolding installed successfully.');
