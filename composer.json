@@ -1,10 +1,10 @@
 {
-  "name": "kometsoft/laravel-auth",
-  "description": "Laravel authentication scaffoldings, with Tabler UI.",
+  "name": "kometsoft/ktesting",
+  "description": "Testing jer",
   "authors": [
     {
-      "name": "aerrata",
-      "email": "0x0976@gmail.com"
+      "name": "kometsoft",
+      "email": "info@kometsoft.com.my"
     }
   ],
   "autoload": {
@@ -23,7 +23,6 @@
     }
   },
   "require": {
-    "php": ">=8.0",
-    "laravel/ui": "^4.1"
+    "php": ">=8.0"
   }
 }
