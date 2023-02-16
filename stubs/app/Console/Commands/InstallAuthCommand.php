@@ -32,14 +32,6 @@ class InstallAuthCommand extends Command
         // $this->runCommands(['php artisan ui bootstrap --auth']);
 
         $this->callSilent('vendor:publish', ['--tag' => 'form-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'calendar-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'column-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'generate-file-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'list-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'menu-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'migration-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'tab-controller', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'table-field-controller', '--force' => true]);
 
         // $this->runCommands([
         //     'npm install @tabler/core laravel-datatables-vite nouislider litepicker tom-select alpinejs autosize imask',
@@ -47,7 +39,7 @@ class InstallAuthCommand extends Command
         // ]);
         
         $this->line('');
-        $this->components->info('Auth scaffolding installed successfully.');
+        $this->components->info('KStudion Controller installed successfully.');
     }
 
     protected function runCommands($commands)
