@@ -27,59 +27,19 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadViewsFrom(__DIR__ . '/resources/views', 'tab');
-
-        // $this->loadTranslationsFrom(__DIR__ . '/lang', 'auth');
-
-        // Config file
-        // $this->publishes([
-        //     __DIR__ . '/config/laravel-auth.php' => config_path('laravel-auth.php'),
-        // ], 'laravel-auth-config');
 
         $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/FormController.php' => app_path('Controllers/MyStudio/FormController.php'),
-        ], 'form-controller');
+            __DIR__ . '/../stubs/app/Http/Controllers/MyStudio' => app_path('Controllers/MyStudio'),
+        ], 'kstudio-controller');
 
         $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/CalendarController.php' => resource_path('Controllers/MyStudio/CalendarController.php'),
-        ], 'calendar-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/ColumnController.php' => resource_path('Controllers/MyStudio/ColumnController.php'),
-        ], 'column-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/GenerateFileController.php' => resource_path('Controllers/MyStudio/GenerateFileController.php'),
-        ], 'generate-file-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/ListController.php' => resource_path('Controllers/MyStudio/ListController.php'),
-        ], 'list-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/MenuController.php' => resource_path('Controllers/MyStudio/MenuController.php'),
-        ], 'menu-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/MigrationController.php' => resource_path('Controllers/MyStudio/MigrationController.php'),
-        ], 'migration-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/TabController.php' => resource_path('Controllers/MyStudio/TabController.php'),
-        ], 'tab-controller');
-
-        $this->publishes([
-            __DIR__ . '/app/Http/Controllers/MyStudio/TableFieldController.php' => resource_path('Controllers/MyStudio/TableFieldController.php'),
-        ], 'table-field-controller');
-
+            __DIR__ . '/../stubs/app/Models/MyStudio' => app_path('Models/MyStudio'),
+        ], 'kstudio-model');
 
         // Assets
-        // $this->publishes([
-        //     __DIR__ . '/../stubs/resources/sass' => resource_path('sass'),
-        //     __DIR__ . '/../stubs/resources/js' => resource_path('js'),
-        //     __DIR__ . '/../stubs/vite.config.js' => base_path('vite.config.js'),
-        //     __DIR__ . '/../stubs/public/vendor' => public_path('vendor'),
-        // ], 'laravel-auth-assets');
+        $this->publishes([
+            __DIR__ . '/../stubs/resources/calendar/views/mystudio' => resource_path('calendar/views/mystudio'),
+        ], 'kstudio-assets');
 
         // // Stubs
         // $this->publishes([
