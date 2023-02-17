@@ -31,7 +31,9 @@ class InstallAuthCommand extends Command
     {
         // $this->runCommands(['php artisan ui bootstrap --auth']);
 
-        $this->callSilent('vendor:publish', ['--tag' => 'form-controller', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'kstudio-controller', '--force' => true]);
+        // $this->callSilent('vendor:publish', ['--tag' => 'form-controller', '--force' => true]);
+        // $this->callSilent('vendor:publish', ['--tag' => 'form-controller', '--force' => true]);
 
         // $this->runCommands([
         //     'npm install @tabler/core laravel-datatables-vite nouislider litepicker tom-select alpinejs autosize imask',
