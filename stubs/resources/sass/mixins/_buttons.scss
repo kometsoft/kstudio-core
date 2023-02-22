@@ -1,0 +1,41 @@
+// scss-docs-start btn-outline-variant-mixin
+@mixin button-outline-variant($color, $color-hover: color-contrast($color), $active-background: $color, $active-border: $color, $active-color: color-contrast($active-background)) {
+	color: $color;
+  background-color: shift-color($active-background, -90%);
+
+	&:hover {
+		color: $active-background;
+		background-color: shift-color($active-background, -80%);
+	}
+
+	.btn-check:focus + &,
+	&:focus {
+		box-shadow: 0 0 0 $btn-focus-width rgba($color, 0.5);
+	}
+
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: $active-color;
+		background-color: $active-background;
+		border-color: $active-border;
+
+		&:focus {
+			@if $enable-shadows {
+				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, 0.5));
+			} @else {
+				// Avoid using mixin so we can pass custom focus shadow properly
+				box-shadow: 0 0 0 $btn-focus-width rgba($color, 0.5);
+			}
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		color: $color;
+		background-color: transparent;
+	}
+}
+// scss-docs-end btn-outline-variant-mixin

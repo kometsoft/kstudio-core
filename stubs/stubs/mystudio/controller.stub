@@ -1,0 +1,104 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Http\Controllers\Controller;
+use App\Models\{{ model }} as MyModel;
+use App\DataTables\MyStudio\{{ dataTable }} as MyDataTable;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class {{ class }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request, MyDataTable $dataTable)
+    {
+        return $dataTable->render('mystudio.{{ module }}.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('mystudio.{{ module }}.create', [
+            'model' => new MyModel
+        ] + (request()->all() ?? []));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $model = MyModel::create(array_merge($request->except('_token', 'parent_id', 'parent_form'), [
+            'uuid' => Str::uuid()
+        ]));
+
+        update_relation($model, $request);
+
+        return redirect(route('mystudio.{{ module }}.index') . extend_param($request))->with('success', 'Record successfully created');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  model  $model
+     * @return \Illuminate\Http\Response
+     */
+    public function show(MyModel $model)
+    {
+        return view('mystudio.{{ module }}.show', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  model  $model
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(MyModel $model)
+    {
+        return view('mystudio.{{ module }}.edit', [
+            'model' => $model,
+        ] + (request()->all() ?? []));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  model  $model
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, MyModel $model)
+    {
+        $model->update($request->except('_token', 'parent_id', 'parent_form'));
+
+        return redirect(route('mystudio.{{ module }}.index') . extend_param($request))->with('success', 'Record successfully updated');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(MyModel $model)
+    {
+        $model->delete();
+
+        return response()->json(['success' => true]);
+    }
+}

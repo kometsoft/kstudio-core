@@ -28,18 +28,35 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
 
+        //Controllers
         $this->publishes([
             __DIR__ . '/../stubs/app/Http/Controllers/MyStudio' => app_path('Controllers/MyStudio'),
         ], 'kstudio-controller');
 
+        // Models
         $this->publishes([
             __DIR__ . '/../stubs/app/Models/MyStudio' => app_path('Models/MyStudio'),
         ], 'kstudio-model');
 
-        // Assets
+        // Views
         $this->publishes([
             __DIR__ . '/../stubs/resources/calendar/views/mystudio' => resource_path('calendar/views/mystudio'),
-        ], 'kstudio-assets');
+        ], 'kstudio-view');
+
+        // Routes
+        $this->publishes([
+            __DIR__ . '/../stubs/routes/web' => base_path('routes/web'),
+        ], 'kstudio-route');
+
+        // Stubs
+        $this->publishes([
+            __DIR__ . '/../stubs/stubs' => base_path('stubs'),
+        ], 'kstudio-stubs');
+
+        // Support
+        $this->publishes([
+            __DIR__ . '/../stubs/support' => base_path('support'),
+        ], 'kstudio-support');
 
         // // Stubs
         // $this->publishes([

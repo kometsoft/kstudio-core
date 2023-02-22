@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import 'node_modules/@tabler/icons/iconfont/tabler-icons';
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import '~bootstrap/scss/functions';
+
+// 2. Include any default variable overrides here
+@import 'variables';
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/root';
+
+@import 'mixins/buttons';
+
+// 4. Include any optional Bootstrap CSS as needed
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/accordion';
+@import '~bootstrap/scss/breadcrumb';
+@import '~bootstrap/scss/pagination';
+@import '~bootstrap/scss/badge';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/progress';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/toasts';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
+@import '~bootstrap/scss/carousel';
+@import '~bootstrap/scss/spinners';
+@import '~bootstrap/scss/offcanvas';
+@import '~bootstrap/scss/placeholders';
+
+// Components
+@import 'components/forms/form-control';
+@import 'components/badge';
+@import 'components/alert';
+@import 'components/card';
+@import 'components/accordion';
+@import 'components/carousel';
+@import 'components/modal';
+@import 'components/progress';
+@import 'components/popover';
+@import 'components/toast';
+@import 'components/tooltip';
+@import 'components/nav';
+@import 'components/pagination';
+
+@import 'components/avatar';
+@import 'components/chart';
+@import 'components/reboot';
+@import 'components/sidebar';
+@import 'components/tabler-icons';
+@import 'components/footer';
+@import 'components/stat';
+@import 'components/wrapper';
+@import 'components/main';
+@import 'components/content';
+@import 'components/navbar';
+@import 'components/dropdown';
+
+@import '~simplebar/dist/simplebar';
+@import 'components/simplebar';
+
+@import '~bootstrap/scss/helpers';
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import '~bootstrap/scss/utilities/api';
+
+@import '~datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+@import '~datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css';
+// @import '~datatables.net-select-bs5/css/select.bootstrap5.min.css';
+
+div.dt-button-collection div.dropdown-menu {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ul {
+  padding-inline-start: inherit;
+}
+
+.toast-container {
+  z-index: 9999;
+}
+
+@media (max-width: 767px) {
+  .table-responsive .dropdown-menu {
+    position: static !important;
+  }
+}
+@media (min-width: 768px) {
+  .table-responsive {
+    overflow: scroll;
+  }
+}
+
+// .p-card .p-card-footer {
+// 	padding: 1rem 0 1rem 0;
+// }
+
+.card-footer {
+  position: sticky;
+  bottom: 0;
+  background-color: unset !important;
+  // background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7973783263305322) 50%, rgba(255,255,255,1) 100%);
+
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7973783263305322) 20%, rgba(255,255,255,1) 100%);
+
+  // background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7049413515406162) 50%, rgba(255,255,255,1) 100%);
+}
+
+.main {
+  overflow: visible;
+}
+
+.card-header {
+  color: #4f46e5;
+}
+
+.card-header h5 {
+  font-weight: 700;
+}
