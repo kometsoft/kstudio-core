@@ -1,0 +1,39 @@
+@section('content')
+    <div class="container-fluid p-0">
+        <x-page-header>
+            <h3>{{ title_plural }}</h3>
+            @php
+                $route = route('mystudio.{{ form }}.create');
+
+                if (!empty(request()->get('parent_id')) && !empty(request()->get('parent_form'))) {
+                    $route .= '?parent_id=' . request()->get('parent_id') . '&parent_form=' . request()->get('parent_form');
+                }
+            @endphp
+            <div class="d-flex justify-content-end">
+                {!! form_navigator({{ form_id }}) !!}
+                @can('{{ form }}:create')
+                    <a href="{{ $route }}" class="btn btn-primary">Create</a>
+                @endcan
+            </div>
+        </x-page-header>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        {{ $dataTable->table() }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('scripts')
+<script>
+    $(function() {
+        {{ $dataTable->javascripts() }}
+    })
+</script>
+@endpush

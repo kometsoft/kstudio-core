@@ -1,0 +1,36 @@
+@extends('layouts.dashboard')
+
+@section('content')
+<div class="container-fluid p-0">
+    <x-page-header>
+        <h3>Edit {{ title }}</h3>
+    </x-page-header>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form id="edit-form" action="{{ route('mystudio.{{ form }}.update', $model) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        @if (!empty($parent_id))
+                            <input type="hidden" name="parent_form" value="{{ $parent_form ?? '' }}">
+                            <input type="hidden" name="parent_id" value="{{ $parent_id ?? '' }}">
+                        @endif
+                        {{ content_edit }}
+                    </form>
+                    <div class="card-footer justify-content-end">
+                        <a href="{{ url()->previous() }}" class="btn btn-outline-primary me-2">Cancel</a>
+                        <button type="submit" form="edit-form" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('scripts')
+<script>
+    {{-- {{ scripts }} --}}
+</script>
+@endpush

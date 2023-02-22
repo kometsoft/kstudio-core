@@ -1,0 +1,93 @@
+[
+    {
+        "label": "kStudio",
+        "icon": "",
+        "permission": "",
+        "submenu": [
+            {
+                "label": "Tables",
+                "icon": "ti ti-table",
+                "slug": "table",
+                "route": "table.index",
+                "permission": ""
+            },
+            {
+                "label": "Migrations",
+                "icon": "ti ti-database",
+                "slug": "migration",
+                "route": "migration.index",
+                "permission": ""
+            },
+            {
+                "label": "Forms",
+                "icon": "ti ti-layout",
+                "slug": "form",
+                "route": "form.index",
+                "permission": ""
+            },
+            {
+                "label": "Menus",
+                "icon": "ti ti-menu",
+                "slug": "menu",
+                "route": "menu.show",
+                "permission": ""
+            },
+            {
+                "label": "Lists",
+                "icon": "ti ti-list-numbers",
+                "slug": "list",
+                "route": "list.index",
+                "permission": ""
+            },
+            {
+                "label": "Calendars",
+                "icon": "ti ti-calendar-event",
+                "slug": "calendar",
+                "route": "calendar.index",
+                "permission": ""
+            },
+            {
+                "label": "Tabs",
+                "icon": "ti ti-column-insert-left",
+                "slug": "tabs",
+                "route": "tabs.index",
+                "permission": ""
+            }
+        ]
+    },
+    {
+        "label": "Administration",
+        "icon": "",
+        "role": "Pentadbir Sistem",
+        "submenu": [
+            {
+                "label": "Users",
+                "icon": "ti ti-users",
+                "slug": "admin.user",
+                "route": "admin.user.index",
+                "permission": "user:list"
+            },
+            {
+                "label": "Roles & Permissions",
+                "icon": "ti ti-lock",
+                "slug": "admin.role",
+                "route": "admin.role.index",
+                "permission": ""
+            },
+            {
+                "label": "Audit Trail",
+                "icon": "ti ti-sock",
+                "slug": "admin.audit-trail",
+                "route": "admin.audit-trail.index",
+                "permission": ""
+            },
+            {
+                "label": "Data Dictionaries",
+                "icon": "ti ti-book",
+                "slug": "admin.data-dictionary",
+                "route": "admin.data-dictionary.index",
+                "permission": ""
+            }
+        ]
+    }
+]

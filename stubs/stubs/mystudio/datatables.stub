@@ -1,0 +1,116 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyModel as Model;
+use App\Models\MyStudio\Tab;
+use Illuminate\Support\Str;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Services\DataTable;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Html\Editor\Editor;
+
+class DummyClass extends DataTable
+{
+    /**
+     * Build DataTable class.
+     *
+     * @param mixed $query Results from query() method.
+     * @return \Yajra\DataTables\DataTableAbstract
+     */
+    public function dataTable($query)
+    {
+        $query->when(request()->has('parent_id') && request()->has('parent_form'), function ($query) {
+            $current = (new Model)->getTable();
+            $tab     = Tab::where('settings->form_id', request('parent_form'))->first();
+            $table   = collect(data_get($tab->settings, 'subtab'))->where('table', $current)->first();
+            $class   = '\App\Models\MyStudio\\' . Str::of($table['parent_table'])->singular()->camel()->ucfirst();
+            $record  = $class::whereUuid(request('parent_id'))->first();
+
+            if ($table['relation_type'] == 'hasMany') {
+                $query->where($table['foreign_key'], data_get($record, 'id'));
+            } else if ($table['relation_type'] == 'belongsToMany') {
+                $query->whereRaw("id IN (SELECT " . $table['local_key'] . " FROM " . $table['ref_table'] . " WHERE " . $table['foreign_key'] . " = " . data_get($record, 'id') . ")");
+            }
+        });
+
+        return datatables()
+            ->eloquent($query)
+            ->addIndexColumn()
+            ->addColumn('action', function (Model $model) {
+                return view('components.datatable-action', [
+                    'id' => 'DummyTableId',
+                    'route' => [
+                        'show' => route('DummyRoute.show', $model),
+                        'edit' => route('DummyRoute.edit', $model) . extend_param(request()),
+                        'destroy' => route('DummyRoute.destroy', $model) . extend_param(request())
+                    ]
+                ])->toHtml();
+            })
+            ->editColumn('created_at', function ($model) {
+                return $model->created_at->format(config('app.date_format_human')) ?: null;
+            })
+            ->editColumn('updated_at', function ($model) {
+                return $model->updated_at->format(config('app.date_format_human')) ?: null;
+            })
+            ->rawColumns(['action']);
+    }
+
+    /**
+     * Get query source of dataTable.
+     *
+     * @param \DummyModel $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query(Model $model)
+    {
+        return $model->query();
+    }
+
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return \Yajra\DataTables\Html\Builder
+     */
+    public function html()
+    {
+        return $this->builder()
+                    ->setTableId('DummyTableId')
+                    ->columns($this->getColumns())
+                    ->minifiedAjax()
+                    ->orderBy(1)
+                    ->buttons(
+                        DummyButtons
+                    )
+                    ->parameters([
+                        'searchDelay' => 600,
+                    ]);
+    }
+
+    /**
+     * Get columns.
+     *
+     * @return array
+     */
+    protected function getColumns()
+    {
+        return [
+            Column::make('DT_RowIndex')->title('#')->sortable(false),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false),
+            DummyColumns
+        ];
+    }
+
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
+    protected function filename()
+    {
+        return 'DummyFilename_' . date('YmdHis');
+    }
+}

@@ -1,0 +1,32 @@
+@extends('layouts.dashboard')
+
+@section('content')
+<div class="container-fluid p-0">
+    <x-page-header>
+        <h3>{{ title }}</h3>
+        <div class="d-flex justify-content-end">
+            {!! form_navigator({{ form_id }}, true) !!}
+        </div>
+    </x-page-header>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    {{ content_show }}
+                    <div class="card-footer justify-content-end">
+                        @can('{{ form }}:edit')
+                            <a href="{{ route('mystudio.{{ form }}.edit', $model) }}" class="btn btn-primary me-2">Edit</a>
+                        @endcan
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('scripts')
+<script>
+    {{-- {{ scripts }} --}}
+</script>
+@endpush
