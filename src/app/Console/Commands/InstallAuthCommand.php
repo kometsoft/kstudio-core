@@ -13,14 +13,14 @@ class InstallAuthCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'auth:install';
+    protected $signature = 'kstudio:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the auth resources.';
+    protected $description = 'Install the kstudio core.';
 
     /**
      * Execute the console command.
