@@ -40,8 +40,8 @@ class InstallAuthCommand extends Command
         //     'npm run build',
         // ]);
         
-        $this->line('');
-        $this->components->info('KStudion Controller installed successfully.');
+        // $this->line('');
+        // $this->components->info('KStudio Controller installed successfully.');
     }
 
     protected function runCommands($commands)
