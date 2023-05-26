@@ -41,6 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         // Views
         $this->publishes([
             __DIR__ . '/../stubs/resources/views/mystudio' => resource_path('calendar/views/mystudio'),
+            __DIR__ . '/../stubs/resources/views/home.blade.php' => resource_path('calendar/views/home.blade.php'),
         ], 'kstudio-view');
 
         // Routes
