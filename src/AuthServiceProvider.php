@@ -61,6 +61,11 @@ class AuthServiceProvider extends ServiceProvider
             __DIR__ . '/../stubs/support' => base_path('support'),
         ], 'kstudio-support');
 
+        // Support
+        $this->publishes([
+            __DIR__ . '/../stubs/public' => base_path('public'),
+        ], 'kstudio-public');
+
         // // Stubs
         // $this->publishes([
         //     __DIR__ . '/../stubs/app' => app_path(),
