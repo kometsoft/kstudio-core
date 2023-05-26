@@ -35,7 +35,7 @@ class InstallAuthCommand extends Command
         $this->runCommands(['php artisan ui bootstrap --auth']);
 
         $this->runCommands(['composer require kometsoft/laravel-ui']);
-        $this->runCommands(['php artisan vendor:publish --tag=ui-resources']);
+        $this->runCommands(['php artisan vendor:publish --tag=ui-resources --force']);
         $this->runCommands(['npm install']);
         $this->runCommands(['npm i @tabler/core@1.0.0-beta17 bootstrap@5.3.0-alpha1 @tabler/icons-webfont autosize imask litepicker tom-select']);
         $this->runCommands(['npm run build']);
