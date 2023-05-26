@@ -31,8 +31,8 @@ class InstallAuthCommand extends Command
     {
         // $this->runCommands(['php artisan ui bootstrap --auth']);
 
-        $this->runCommands(['composer require laravel/ui']);
-        $this->runCommands(['php artisan ui bootstrap --auth']);
+        // $this->runCommands(['composer require laravel/ui']);
+        // $this->runCommands(['php artisan ui bootstrap --auth']);
 
         $this->runCommands(['composer require kometsoft/laravel-ui']);
         $this->runCommands(['php artisan vendor:publish --tag=ui-resources --force']);
@@ -46,6 +46,7 @@ class InstallAuthCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'kstudio-route', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'kstudio-stubs', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'kstudio-support', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'kstudio-public', '--force' => true]);
 
         // $this->runCommands([
         //     'npm install @tabler/core laravel-datatables-vite nouislider litepicker tom-select alpinejs autosize imask',
