@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Models
         $this->publishes([
-            __DIR__ . '/../stubs/app/Models/MyStudio' => app_path('Models/MyStudio'),
+            __DIR__ . '/../stubs/app/Models' => app_path('Models'),
         ], 'kstudio-model');
 
         // Views
@@ -44,6 +44,9 @@ class AuthServiceProvider extends ServiceProvider
             __DIR__ . '/../stubs/resources/views/mystudio' => resource_path('views/mystudio'),
             __DIR__ . '/../stubs/resources/views/home.blade.php' => resource_path('views/home.blade.php'),
             __DIR__ . '/../stubs/resources/views/layouts' => resource_path('views/layouts'),
+            __DIR__ . '/../stubs/resources/views/components' => resource_path('views/components'),
+            __DIR__ . '/../stubs/resources/json' => resource_path('json'),
+
         ], 'kstudio-view');
 
         // Routes
@@ -61,10 +64,15 @@ class AuthServiceProvider extends ServiceProvider
             __DIR__ . '/../stubs/support' => base_path('support'),
         ], 'kstudio-support');
 
-        // Support
+        // public
         $this->publishes([
             __DIR__ . '/../stubs/public' => base_path('public'),
         ], 'kstudio-public');
+
+        // public
+        $this->publishes([
+            __DIR__ . '/../stubs/database/migrations' => base_path('database/migrations'),
+        ], 'kstudio-migration');
 
         // // Stubs
         // $this->publishes([

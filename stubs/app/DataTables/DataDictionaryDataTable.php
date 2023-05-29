@@ -118,8 +118,8 @@ class DataDictionaryDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
-    {
-        return 'DataDictionary_' . date('YmdHis');
-    }
+    // protected function filename()
+    // {
+    //     return 'DataDictionary_' . date('YmdHis');
+    // }
 }
