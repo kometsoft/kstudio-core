@@ -49,7 +49,7 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model)
     {
-        DB::statement(DB::raw('set @rownum=0'));
+        // DB::statement(DB::raw('set @rownum=0'));
 
         return $model->newQuery();
     }
@@ -96,8 +96,8 @@ class UsersDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
-    {
-        return 'Users_' . date('YmdHis');
-    }
+    // protected function filename()
+    // {
+    //     return 'Users_' . date('YmdHis');
+    // }
 }

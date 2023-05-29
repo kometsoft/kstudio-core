@@ -84,8 +84,8 @@ class AuditTrailsDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
-    {
-        return 'AuditTrails_' . date('YmdHis');
-    }
+    // protected function filename()
+    // {
+    //     return 'AuditTrails_' . date('YmdHis');
+    // }
 }
