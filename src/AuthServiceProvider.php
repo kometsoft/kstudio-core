@@ -74,6 +74,16 @@ class AuthServiceProvider extends ServiceProvider
             __DIR__ . '/../stubs/database/migrations' => base_path('database/migrations'),
         ], 'kstudio-migration');
 
+        // filesystem
+        $this->publishes([
+            __DIR__ . '/../stubs/config/filesystem.php' => base_path('config/filesystem.php'),
+        ], 'kstudio-filesystem');
+
+        //Requests
+        $this->publishes([
+            __DIR__ . '/../stubs/app/Http/Requests' => app_path('Http'),
+        ], 'kstudio-requests');
+
         // // Stubs
         // $this->publishes([
         //     __DIR__ . '/../stubs/app' => app_path(),
