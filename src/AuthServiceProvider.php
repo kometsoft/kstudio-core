@@ -76,7 +76,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // filesystem
         $this->publishes([
-            __DIR__ . '/../stubs/config/filesystem.php' => base_path('config/filesystem.php'),
+            __DIR__ . '/../stubs/config/filesystems.php' => base_path('config/filesystems.php'),
         ], 'kstudio-filesystem');
 
         //Requests
