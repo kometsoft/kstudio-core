@@ -48,6 +48,8 @@ class InstallAuthCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'kstudio-support', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'kstudio-public', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'kstudio-migration', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'kstudio-filesystem', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'kstudio-requests', '--force' => true]);
 
         $this->runCommands(['composer require spatie/laravel-permission']);
         $this->runCommands(['composer require spatie/laravel-activitylog']);
